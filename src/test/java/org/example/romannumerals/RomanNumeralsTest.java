@@ -11,5 +11,6 @@ public class RomanNumeralsTest {
     @Test
     public void convertFromDecimalToRomanNumerals() {
         assertThat(fromDecimal(1), is("I"));
+        assertThat(fromDecimal(2), is("II"));
     }
 }
