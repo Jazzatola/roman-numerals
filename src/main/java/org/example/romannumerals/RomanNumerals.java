@@ -9,7 +9,7 @@ public class RomanNumerals {
             decimal -= 10;
         }
 
-        if(decimal >= 5) {
+        while(decimal >= 5) {
             output.append("V");
             decimal -= 5;
         }
