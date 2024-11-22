@@ -4,7 +4,7 @@ public class RomanNumerals {
     public static String fromDecimal(int decimal) {
         StringBuilder output = new StringBuilder();
 
-        if(decimal >= 10) {
+        while(decimal >= 10) {
             output.append("X");
             decimal -= 10;
         }
