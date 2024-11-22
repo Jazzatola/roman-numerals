@@ -17,5 +17,7 @@ public class RomanNumeralsTest {
         assertThat(fromDecimal(6), is("VI"));
         assertThat(fromDecimal(7), is("VII"));
         assertThat(fromDecimal(8), is("VIII"));
+        assertThat(fromDecimal(10), is("X"));
+        assertThat(fromDecimal(18), is("XVIII"));
     }
 }
