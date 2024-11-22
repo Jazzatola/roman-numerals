@@ -14,7 +14,11 @@ public class RomanNumerals {
             decimal -= 5;
         }
 
-        output.append("I".repeat(decimal));
+        while(decimal > 0) {
+            output.append("I");
+            decimal--;
+        }
+
         return output.toString();
     }
 }
