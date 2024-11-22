@@ -7,7 +7,9 @@ public class RomanNumerals {
 
     private static final Map<Integer, String> romanNumerals = Map.of(
         1, "I",
+        4, "IV",
         5, "V",
+        9, "IX",
         10, "X"
     );
 
