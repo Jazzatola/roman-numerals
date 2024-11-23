@@ -1,41 +1,31 @@
 package org.example.romannumerals;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-
 public class RomanNumerals {
 
-    private static final Map<Integer, String> romanNumerals = Map.of(
-        1, "I",
-        4, "IV",
-        5, "V",
-        9, "IX",
-        10, "X"
-    );
+    private enum RomanNumeral {
+        X(10),
+        IX(9),
+        V(5),
+        IV(4),
+        I(1);
+
+        private final Integer decimal;
+
+        RomanNumeral(Integer decimal) {
+            this.decimal = decimal;
+        }
+    }
 
     public static String fromDecimal(int decimal) {
         StringBuilder output = new StringBuilder();
 
-        for(Integer key: decimalKeysInReverseOrder()) {
-            while(decimal >= key) {
-                output.append(getRomanNumeralFor(key));
-                decimal -= key;
+        for(RomanNumeral numeral: RomanNumeral.values()) {
+            while(decimal >= numeral.decimal) {
+                output.append(numeral.name());
+                decimal -= numeral.decimal;
             }
         }
 
         return output.toString();
-    }
-
-    private static String getRomanNumeralFor(Integer key) {
-        return romanNumerals.get(key);
-    }
-
-    private static List<Integer> decimalKeysInReverseOrder() {
-        return romanNumerals.keySet().stream().sorted(inReverseOrder()).toList();
-    }
-
-    private static Comparator<Integer> inReverseOrder() {
-        return (first, second) -> second - first;
     }
 }
