@@ -23,5 +23,10 @@ public class RomanNumeralsTest {
         assertThat(fromDecimal(18), is("XVIII"));
         assertThat(fromDecimal(28), is("XXVIII"));
         assertThat(fromDecimal(39), is("XXXIX"));
+        assertThat(fromDecimal(1525), is("MDXXV"));
+        assertThat(fromDecimal(1984), is("MCMLXXXIV"));
+        assertThat(fromDecimal(1990), is("MCMXC"));
+        assertThat(fromDecimal(3040), is("MMMXL"));
+        assertThat(fromDecimal(3999), is("MMMCMXCIX"));
     }
 }
