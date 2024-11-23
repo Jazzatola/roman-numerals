@@ -1,5 +1,6 @@
 package org.example.romannumerals;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -18,7 +19,7 @@ public class RomanNumerals {
 
         for(Integer key: decimalKeysInReverseOrder()) {
             while(decimal >= key) {
-                output.append(romanNumerals.get(key));
+                output.append(getRomanNumeralFor(key));
                 decimal -= key;
             }
         }
@@ -26,7 +27,15 @@ public class RomanNumerals {
         return output.toString();
     }
 
+    private static String getRomanNumeralFor(Integer key) {
+        return romanNumerals.get(key);
+    }
+
     private static List<Integer> decimalKeysInReverseOrder() {
-        return romanNumerals.keySet().stream().sorted((first, second) -> second - first).toList();
+        return romanNumerals.keySet().stream().sorted(inReverseOrder()).toList();
+    }
+
+    private static Comparator<Integer> inReverseOrder() {
+        return (first, second) -> second - first;
     }
 }
